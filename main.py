@@ -174,7 +174,7 @@ for m in metrics:
 metric_LOC = pd.DataFrame()
 
 # - loop through planning horizons
-for ph in np.arange(2045, 2050 + 1, 1):
+for ph in np.arange(2040, 2085 + 1, 1):
     print(ph)
 
     ph_idx = ph - base_year
@@ -202,7 +202,7 @@ for ph in np.arange(2045, 2050 + 1, 1):
         tp_center_norm = data_sorted[["dt_norm", "dp_norm"]].mean().to_numpy()
 
         # - get levels of concern (each exceedance)
-        for exceedance in [0.5, 0.25, 0.05]:
+        for exceedance in [0.75, 0.5, 0.25, 0.05]:
             # - get the exceedance indices
             idx_low, idx_hi = int(exceedance * len(data_sorted) - sample_buffer), int(
                 exceedance * len(data_sorted) + sample_buffer
